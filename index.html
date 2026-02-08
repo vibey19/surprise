@@ -1,0 +1,1272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Shreya 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Dancing+Script:wght@600;700&family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --peach: #FFB5A7;
+            --mint: #B5EAD7;
+            --lavender: #C7CEEA;
+            --butter: #FFF4A3;
+            --pink: #FFC8DD;
+            --cream: #FFF8F0;
+            --brown: #8B7355;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #FFE5E5 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Decorative background elements */
+        .bg-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.15;
+        }
+
+        .heart-float {
+            position: absolute;
+            font-size: 20px;
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.3; }
+            50% { transform: translateY(-100vh) rotate(180deg); opacity: 0.6; }
+        }
+
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Screens */
+        .screen {
+            display: none;
+            animation: fadeIn 0.6s ease;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Landing Page */
+        .landing {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .landing h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: var(--brown);
+            margin-bottom: 30px;
+            text-shadow: 3px 3px 0px rgba(255, 182, 193, 0.3);
+            animation: bounceIn 1s ease;
+            line-height: 1.3;
+        }
+
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .landing p {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            color: #666;
+            margin-bottom: 40px;
+            line-height: 2;
+            font-style: italic;
+        }
+
+        .start-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.3rem;
+            padding: 18px 50px;
+            background: linear-gradient(135deg, var(--peach), var(--pink));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 181, 167, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .start-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(255, 181, 167, 0.6);
+        }
+
+        /* Scrapbook Page */
+        .scrapbook-page {
+            background: white;
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 
+                0 10px 40px rgba(0,0,0,0.1),
+                inset 0 0 0 1px rgba(255,255,255,0.5);
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        /* Decorative tape */
+        .tape {
+            position: absolute;
+            width: 120px;
+            height: 30px;
+            background: repeating-linear-gradient(
+                45deg,
+                rgba(255, 244, 163, 0.7),
+                rgba(255, 244, 163, 0.7) 10px,
+                rgba(255, 234, 133, 0.7) 10px,
+                rgba(255, 234, 133, 0.7) 20px
+            );
+            opacity: 0.8;
+        }
+
+        .tape-top {
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%) rotate(-2deg);
+        }
+
+        /* Location Header */
+        .location-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .location-number {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: var(--peach);
+            margin-bottom: 10px;
+            font-style: italic;
+            letter-spacing: 2px;
+        }
+
+        .location-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            color: var(--brown);
+            margin-bottom: 15px;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .location-subtitle {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Progress Bar */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(0,0,0,0.05);
+            border-radius: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--peach), var(--pink), var(--lavender));
+            border-radius: 10px;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Question Phase */
+        .question-phase {
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .question-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--brown);
+            margin-bottom: 30px;
+            line-height: 1.6;
+            font-style: italic;
+        }
+
+        .answer-input {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            padding: 15px 25px;
+            width: 100%;
+            max-width: 400px;
+            border: 3px solid var(--lavender);
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .answer-input:focus {
+            outline: none;
+            border-color: var(--peach);
+            box-shadow: 0 0 20px rgba(255, 181, 167, 0.3);
+        }
+
+        .submit-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--lavender), var(--mint));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(181, 234, 215, 0.4);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(181, 234, 215, 0.6);
+        }
+
+        .error-message {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: #e74c3c;
+            margin-top: 20px;
+            font-style: italic;
+            animation: shake 0.5s ease;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-10px); }
+            75% { transform: translateX(10px); }
+        }
+
+        /* Memory Revealed Phase */
+        .memory-phase {
+            display: none;
+            animation: fadeIn 0.8s ease;
+        }
+
+        .memory-phase.active {
+            display: block;
+        }
+
+        .memory-text {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.4rem;
+            color: #555;
+            line-height: 2;
+            font-style: italic;
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        /* Mini Game Styles */
+        .game-container {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        /* Game 1: Polaroid Reveal */
+        .polaroid {
+            width: 300px;
+            height: 360px;
+            background: white;
+            padding: 20px 20px 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin: 0 auto 30px;
+            transform: rotate(-3deg);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .polaroid-img {
+            width: 100%;
+            height: 260px;
+            background: linear-gradient(135deg, var(--mint), var(--lavender));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .polaroid-caption {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #555;
+            text-align: center;
+        }
+
+        .reveal-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--brown);
+            transition: opacity 0.5s ease;
+        }
+
+        .reveal-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Game 2: Food Emoji Matcher */
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 400px;
+            margin: 0 auto 30px;
+        }
+
+        .food-item {
+            aspect-ratio: 1;
+            background: white;
+            border: 3px solid var(--mint);
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            padding: 10px;
+        }
+
+        .food-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.8rem;
+            margin-top: 5px;
+            color: #666;
+        }
+
+        .food-item:hover {
+            transform: scale(1.1) rotate(5deg);
+            border-color: var(--peach);
+        }
+
+        .food-item.selected {
+            background: linear-gradient(135deg, var(--peach), var(--pink));
+            border-color: var(--pink);
+            transform: scale(0.95);
+        }
+
+        .food-item.correct {
+            background: linear-gradient(135deg, var(--mint), #90EE90);
+            animation: pulse 0.5s ease;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        /* Game 3: Movie Theater */
+        .theater-screen {
+            background: linear-gradient(135deg, #2C3E50, #34495E);
+            padding: 40px;
+            border-radius: 20px;
+            margin-bottom: 30px;
+            position: relative;
+            min-height: 300px;
+        }
+
+        .theater-seats {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 10px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .seat {
+            aspect-ratio: 1;
+            background: #7F8C8D;
+            border-radius: 10px 10px 5px 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .seat:hover {
+            background: #95A5A6;
+            transform: scale(1.1);
+        }
+
+        .seat::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 10%;
+            right: 10%;
+            height: 5px;
+            background: #5F6C6D;
+            border-radius: 0 0 5px 5px;
+        }
+
+        .seat.special {
+            background: linear-gradient(135deg, var(--peach), var(--pink));
+            animation: glow 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px var(--pink); }
+            50% { box-shadow: 0 0 20px var(--peach), 0 0 30px var(--pink); }
+        }
+
+        /* Game 4: Pizza Slider */
+        .pizza-container {
+            max-width: 400px;
+            margin: 0 auto 30px;
+        }
+
+        .pizza-slice {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 50% 50% 0 0;
+            position: relative;
+            margin: 20px auto;
+            transform: rotate(var(--rotation, 0deg));
+            transition: transform 0.3s ease;
+            cursor: grab;
+        }
+
+        .pizza-slice:active {
+            cursor: grabbing;
+        }
+
+        .pizza-topping {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: #FF6347;
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .slider-control {
+            margin-top: 30px;
+        }
+
+        .slider {
+            width: 100%;
+            height: 8px;
+            border-radius: 5px;
+            background: rgba(0,0,0,0.1);
+            outline: none;
+            -webkit-appearance: none;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--peach), var(--pink));
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--peach), var(--pink));
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        /* Game 5: Tulip Garden */
+        .tulip-garden {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 15px;
+            max-width: 500px;
+            margin: 0 auto 30px;
+        }
+
+        .tulip {
+            font-size: 3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            filter: grayscale(100%);
+            opacity: 0.3;
+        }
+
+        .tulip:hover {
+            transform: scale(1.2);
+        }
+
+        .tulip.bloomed {
+            filter: grayscale(0%);
+            opacity: 1;
+            animation: bloom 0.6s ease;
+        }
+
+        @keyframes bloom {
+            0% { transform: scale(0.5) rotate(-45deg); }
+            60% { transform: scale(1.2) rotate(10deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        /* Continue Button */
+        .continue-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--lavender), var(--mint));
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(181, 234, 215, 0.4);
+            transition: all 0.3s ease;
+            margin-top: 30px;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .continue-btn.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .continue-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(181, 234, 215, 0.6);
+        }
+
+        /* Final Screen */
+        .final-screen {
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .final-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: var(--brown);
+            margin-bottom: 30px;
+            animation: fadeInScale 1s ease;
+        }
+
+        @keyframes fadeInScale {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .final-message {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.6rem;
+            color: #555;
+            margin-bottom: 50px;
+            line-height: 2.2;
+            font-style: italic;
+        }
+
+        .valentine-question {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--peach);
+            margin: 40px 0;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            10%, 30% { transform: scale(1.05); }
+            20%, 40% { transform: scale(1); }
+        }
+
+        .yes-btn {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+            padding: 20px 60px;
+            background: linear-gradient(135deg, #FF6B9D, #C44569);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+            transition: all 0.3s ease;
+            margin: 20px;
+        }
+
+        .yes-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.7);
+        }
+
+        /* Confetti */
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: var(--peach);
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            animation: confetti-fall 3s linear;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .final-hearts {
+            font-size: 3rem;
+            margin-top: 30px;
+            animation: fadeIn 2s ease;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .landing h1 { font-size: 3.5rem; }
+            .location-title { font-size: 2.5rem; }
+            .scrapbook-page { padding: 30px 20px; }
+            .food-grid { grid-template-columns: repeat(2, 1fr); }
+            .theater-seats { grid-template-columns: repeat(5, 1fr); }
+            .tulip-garden { grid-template-columns: repeat(4, 1fr); }
+            .question-text { font-size: 1.5rem; }
+        }
+
+        .game-instruction {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .sticker {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.7;
+            animation: stickerPop 0.5s ease backwards;
+        }
+
+        @keyframes stickerPop {
+            from { transform: scale(0) rotate(-180deg); }
+            to { transform: scale(1) rotate(0deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating hearts background -->
+    <div class="bg-hearts" id="bgHearts"></div>
+
+    <div class="container">
+        <!-- Landing Screen -->
+        <div class="screen active" id="landing">
+            <div class="landing">
+                <h1>A Journey Through<br>Our Memories</h1>
+                <p>
+                    My Love,<br>
+                    Like pages in a cherished diary,<br>
+                    each moment with you tells a story...<br>
+                    Let us wander through these memories together 💕
+                </p>
+                <button class="start-btn" onclick="startJourney()">
+                    Begin Our Journey
+                </button>
+            </div>
+        </div>
+
+        <!-- Location 1: Cafe Coffee Day -->
+        <div class="screen" id="location1">
+            <div class="scrapbook-page">
+                <div class="tape tape-top"></div>
+                <div class="sticker" style="top: 20px; right: 20px; animation-delay: 0.5s;">☕</div>
+                
+                <div class="location-header">
+                    <div class="location-number">Chapter One of Five</div>
+                    <h2 class="location-title">The First Coffee</h2>
+                    <p class="location-subtitle">Where our story began to brew...</p>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 20%"></div>
+                </div>
+
+                <!-- Question Phase -->
+                <div class="question-phase" id="question1">
+                    <p class="question-text">
+                        Where did we share our very first coffee together, (I mean not really, you fed me garlic bread and Ice tea)<br>
+                        where nervous smiles met curious glances?
+                    </p>
+                    <input type="text" class="answer-input" id="answer1" placeholder="Type your answer here...">
+                    <br>
+                    <button class="submit-btn" onclick="checkAnswer(1, 'cafe coffee day')">Submit Answer</button>
+                    <p class="error-message" id="error1" style="display: none;"></p>
+                </div>
+
+                <!-- Memory Phase -->
+                <div class="memory-phase" id="memory1">
+                    <div class="game-container">
+                        <p class="memory-text">
+                            At Cafe Coffee Day, two hearts met over steaming cups,<br>
+                            A short date perhaps, yet long enough to linger in memory forever...<br>
+                            Click the polaroid to relive that precious moment ☕
+                        </p>
+                        
+                        <div class="polaroid" onclick="revealMemory()">
+                            <div class="polaroid-img">
+                                <div class="reveal-overlay" id="coffeeOverlay">
+                                    Click to Reveal
+                                </div>
+                                <video src="video.MP4" autoplay loop muted></video>
+                            </div>
+                            <div class="polaroid-caption">Our First Coffee Date</div>
+                        </div>
+
+
+                        <button class="continue-btn" id="continue1" onclick="nextLocation(2)">
+                            Continue to Next Memory →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location 2: The Secret Kitchen -->
+        <div class="screen" id="location2">
+            <div class="scrapbook-page">
+                <div class="tape tape-top"></div>
+                <div class="sticker" style="top: 20px; left: 20px; animation-delay: 0.5s;">🍽️</div>
+                <div class="sticker" style="top: 20px; right: 20px; animation-delay: 0.7s;">💕</div>
+                
+                <div class="location-header">
+                    <div class="location-number">Chapter Two of Five</div>
+                    <h2 class="location-title">The ______ Kitchen</h2>
+                    <p class="location-subtitle">A feast for the heart and soul...</p>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 40%"></div>
+                </div>
+
+                <!-- Question Phase -->
+                <div class="question-phase" id="question2">
+                    <p class="question-text">
+                        In which cozy restro did we share our first lunch,<br>
+                        where our appetites matched our laughter?
+                    </p>
+                    <input type="text" class="answer-input" id="answer2" placeholder="Type your answer here...">
+                    <br>
+                    <button class="submit-btn" onclick="checkAnswer(2, 'the secret kitchen')">Submit Answer</button>
+                    <p class="error-message" id="error2" style="display: none;"></p>
+                </div>
+
+                <!-- Memory Phase -->
+                <div class="memory-phase" id="memory2">
+                    <div class="game-container">
+                        <p class="memory-text">
+                            The Secret Kitchen held no secrets that day,<br>
+                            Only the undeniable truth that we were hungry... for each other's company!<br>
+                            Find the 3 dishes we devoured together 😂
+                        </p>
+                        
+                        <div class="food-grid" id="foodGrid">
+                            <div class="food-item" onclick="selectFood(this, true)">
+                                <div>🫓</div>
+                                <div class="food-label">Naan</div>
+                            </div>
+                            <div class="food-item" onclick="selectFood(this, false)">
+                                <div>🍣</div>
+                                <div class="food-label">Sushi</div>
+                            </div>
+                            <div class="food-item" onclick="selectFood(this, true)">
+                                <div>🧈</div>
+                                <div class="food-label">Paneer Sabji</div>
+                            </div>
+                            <div class="food-item" onclick="selectFood(this, false)">
+                                <div>🌮</div>
+                                <div class="food-label">Tacos</div>
+                            </div>
+                            <div class="food-item" onclick="selectFood(this, true)">
+                                <div>🥛</div>
+                                <div class="food-label">Buttermilk</div>
+                            </div>
+                            <div class="food-item" onclick="selectFood(this, false)">
+                                <div>🍔</div>
+                                <div class="food-label">Burger</div>
+                            </div>
+                        </div>
+
+                        <p class="memory-text">
+                            We ordered with hearts bigger than our stomachs,<br>
+                            Every bite a testament to our endless appetite for joy! 🍽️✨
+                        </p>
+
+                        <button class="continue-btn" id="continue2" onclick="nextLocation(3)">
+                            Continue to Next Memory →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location 3: The Buckingham Murders -->
+        <div class="screen" id="location3">
+            <div class="scrapbook-page">
+                <div class="tape tape-top"></div>
+                <div class="sticker" style="top: 20px; right: 20px; animation-delay: 0.5s;">🎬</div>
+                <div class="sticker" style="bottom: 20px; left: 20px; animation-delay: 0.7s;">💕</div>
+                
+                <div class="location-header">
+                    <div class="location-number">Chapter Three of Five</div>
+                    <h2 class="location-title">The __________ Murders</h2>
+                    <p class="location-subtitle">A mystery we never solved...</p>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 60%"></div>
+                </div>
+
+                <!-- Question Phase -->
+                <div class="question-phase" id="question3">
+                    <p class="question-text">
+                        What film did we watch on the first Samuhic Movie date?
+                    </p>
+                    <input type="text" class="answer-input" id="answer3" placeholder="Type your answer here...">
+                    <br>
+                    <button class="submit-btn" onclick="checkAnswer(3, 'the buckingham murders')">Submit Answer</button>
+                    <p class="error-message" id="error3" style="display: none;"></p>
+                </div>
+
+                <!-- Memory Phase -->
+                <div class="memory-phase" id="memory3">
+                    <div class="game-container">
+                        <p class="memory-text">
+                            In the darkness of the theater, beneath Buckingham's mysteries,<br>
+                            We found a greater plot twist: each other 🎬<br>
+                            Find the special seats where magic happened...
+                        </p>
+                        
+                        <div class="theater-screen">
+                            <div style="text-align: center; color: white; margin-bottom: 30px; font-family: 'Playfair Display', serif; font-size: 1.5rem;">
+                                🎥 The Buckingham Murders 🎥
+                            </div>
+                            <div class="theater-seats" id="theaterSeats">
+                                <!-- Seats will be generated by JS -->
+                            </div>
+                        </div>
+
+                        <p class="memory-text">
+                            The movie played on, unseen, unheard,<br>
+                            For we were lost in our own beautiful blur 💕
+                        </p>
+
+                        <button class="continue-btn" id="continue3" onclick="nextLocation(4)">
+                            Continue to Next Memory →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location 4: The Blue Oven -->
+        <div class="screen" id="location4">
+            <div class="scrapbook-page">
+                <div class="tape tape-top"></div>
+                <div class="sticker" style="top: 20px; left: 20px; animation-delay: 0.5s;">🎂</div>
+                <div class="sticker" style="bottom: 20px; right: 20px; animation-delay: 0.7s;">🍕</div>
+                
+                <div class="location-header">
+                    <div class="location-number">Chapter Four of Five</div>
+                    <h2 class="location-title">The ____ Oven</h2>
+                    <p class="location-subtitle">A birthday baked in love...</p>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 80%"></div>
+                </div>
+
+                <!-- Question Phase -->
+                <div class="question-phase" id="question4">
+                    <p class="question-text">
+                        Where did we celebrate a year added to your beautiful life,<br>
+                        with flavors as rich as our memories?
+                    </p>
+                    <input type="text" class="answer-input" id="answer4" placeholder="Type your answer here...">
+                    <br>
+                    <button class="submit-btn" onclick="checkAnswer(4, 'the blue oven')">Submit Answer</button>
+                    <p class="error-message" id="error4" style="display: none;"></p>
+                </div>
+
+                <!-- Memory Phase -->
+                <div class="memory-phase" id="memory4">
+                    <div class="game-container">
+                        <p class="memory-text">
+                            The Blue Oven warmed not just our food,<br>
+                            But our souls, as we celebrated you 🎉<br>
+                            Spin the pizza to find the perfect angle of joy!
+                        </p>
+                        
+                        <div class="pizza-container">
+                            <div class="pizza-slice" id="pizzaSlice" style="--rotation: 0deg;">
+                                <div class="pizza-topping" style="top: 30%; left: 40%;"></div>
+                                <div class="pizza-topping" style="top: 50%; left: 60%;"></div>
+                                <div class="pizza-topping" style="top: 70%; left: 50%;"></div>
+                                <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3rem;">
+                                    🍕
+                                </div>
+                            </div>
+                            
+                            <div class="slider-control">
+                                <input type="range" min="0" max="360" value="0" class="slider" id="pizzaSlider">
+                            </div>
+                        </div>
+
+                        <p class="memory-text">
+                            Pizza perfectly baked, pasta divinely crafted,<br>
+                            But the real masterpiece? The smile you wore! 🎂✨
+                        </p>
+
+                        <button class="continue-btn" id="continue4" onclick="nextLocation(5)">
+                            Continue to Next Memory →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Location 5: Block G -->
+        <div class="screen" id="location5">
+            <div class="scrapbook-page">
+                <div class="tape tape-top"></div>
+                <div class="sticker" style="top: 20px; right: 20px; animation-delay: 0.5s;">💝</div>
+                <div class="sticker" style="bottom: 20px; left: 20px; animation-delay: 0.7s;">🌷</div>
+                
+                <div class="location-header">
+                    <div class="location-number">Chapter Five of Five</div>
+                    <h2 class="location-title">Block _</h2>
+                    <p class="location-subtitle">Where tulips spoke what words could not...</p>
+                </div>
+
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 100%"></div>
+                </div>
+
+                <!-- Question Phase -->
+                <div class="question-phase" id="question5">
+                    <p class="question-text">
+                        In which block of Darshan University<br>
+                        did tulips bloom to mark one month of us?
+                    </p>
+                    <input type="text" class="answer-input" id="answer5" placeholder="Type your answer here...">
+                    <br>
+                    <button class="submit-btn" onclick="checkAnswer(5, 'block g')">Submit Answer</button>
+                    <p class="error-message" id="error5" style="display: none;"></p>
+                </div>
+
+                <!-- Memory Phase -->
+                <div class="memory-phase" id="memory5">
+                    <div class="game-container">
+                        <p class="memory-text">
+                            Block G witnessed a garden of emotions unfold,<br>
+                            As tulips whispered secrets that hearts behold 🌷<br>
+                            Click each tulip to make our love bloom!
+                        </p>
+                        
+                        <div class="tulip-garden" id="tulipGarden">
+                            <!-- Tulips will be generated by JS -->
+                        </div>
+
+                        <button class="continue-btn" id="continue5" onclick="showFinal()">
+                            Continue to Something Special... →
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Screen -->
+        <div class="screen" id="final">
+            <div class="final-screen">
+                <h1 class="final-title">We've Wandered Through Time Together</h1>
+                
+                <class="final-message">
+                    But now.... <br/>
+                    The question I am aching to ask you... <br>
+                    And I feel like I am late to as well... <br>
+                    But Better Late then Never...
+                </p>
+
+                <div class="valentine-question">
+                    Shreya, will you be my Valentine? ❤️
+                </div>
+
+                <button class="yes-btn" onclick="celebrate()">
+                    YES! 💕
+                </button>
+
+                <div class="final-hearts">
+                    💕 💖 💝 💗 💓 💕 💖 💝
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create floating hearts background
+        function createFloatingHearts() {
+            const container = document.getElementById('bgHearts');
+            const hearts = ['💕', '💖', '💗', '💝', '💓'];
+            
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart-float';
+                heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                heart.style.left = Math.random() * 100 + '%';
+                heart.style.animationDelay = Math.random() * 15 + 's';
+                heart.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                container.appendChild(heart);
+            }
+        }
+
+        createFloatingHearts();
+
+        // Navigation
+        function showScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+            document.getElementById(screenId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function startJourney() {
+            showScreen('location1');
+        }
+
+        function nextLocation(num) {
+            showScreen('location' + num);
+        }
+
+        function showFinal() {
+            showScreen('final');
+        }
+
+        // Answer checking system
+        function checkAnswer(location, correctAnswer) {
+            const input = document.getElementById('answer' + location);
+            const error = document.getElementById('error' + location);
+            const userAnswer = input.value.toLowerCase().trim();
+            
+            if (userAnswer === correctAnswer) {
+                // Correct answer - hide question, show memory
+                document.getElementById('question' + location).style.display = 'none';
+                document.getElementById('memory' + location).classList.add('active');
+            } else {
+                // Wrong answer
+                error.textContent = "Aay Haay! This is clearly showing who loves who more!";
+                error.style.display = 'block';
+                setTimeout(() => {
+                    error.style.display = 'none';
+                }, 3000);
+            }
+        }
+
+        // Game 1: Polaroid Reveal
+        function revealMemory() {
+            document.getElementById('coffeeOverlay').classList.add('hidden');
+            setTimeout(() => {
+                document.getElementById('continue1').classList.add('show');
+            }, 500);
+        }
+
+        // Game 2: Food Matcher
+        let foodCount = 0;
+        function selectFood(element, isCorrect) {
+            if (element.classList.contains('selected') || element.classList.contains('correct')) return;
+            
+            if (isCorrect) {
+                element.classList.add('correct');
+                foodCount++;
+                
+                if (foodCount === 3) {
+                    setTimeout(() => {
+                        document.getElementById('continue2').classList.add('show');
+                    }, 500);
+                }
+            } else {
+                element.classList.add('selected');
+                setTimeout(() => {
+                    element.classList.remove('selected');
+                }, 500);
+            }
+        }
+
+        // Game 3: Theater Seats
+        function createTheaterSeats() {
+            const container = document.getElementById('theaterSeats');
+            const specialSeats = [16, 17]; // Middle seats in 3rd row
+            
+            for (let i = 0; i < 32; i++) {
+                const seat = document.createElement('div');
+                seat.className = 'seat';
+                
+                if (specialSeats.includes(i)) {
+                    seat.classList.add('special');
+                    seat.onclick = function() {
+                        setTimeout(() => {
+                            document.getElementById('continue3').classList.add('show');
+                        }, 500);
+                    };
+                }
+                
+                container.appendChild(seat);
+            }
+        }
+
+        createTheaterSeats();
+
+        // Game 4: Pizza Slider
+        const pizzaSlider = document.getElementById('pizzaSlider');
+        const pizzaSlice = document.getElementById('pizzaSlice');
+        let pizzaUnlocked = false;
+
+        pizzaSlider.addEventListener('input', function() {
+            pizzaSlice.style.setProperty('--rotation', this.value + 'deg');
+            
+            if (!pizzaUnlocked && Math.abs(this.value - 180) < 10) {
+                pizzaUnlocked = true;
+                setTimeout(() => {
+                    document.getElementById('continue4').classList.add('show');
+                }, 500);
+            }
+        });
+
+        // Game 5: Tulip Garden
+        function createTulipGarden() {
+            const container = document.getElementById('tulipGarden');
+            let bloomedCount = 0;
+            
+            for (let i = 0; i < 10; i++) {
+                const tulip = document.createElement('div');
+                tulip.className = 'tulip';
+                tulip.textContent = '🌷';
+                tulip.onclick = function() {
+                    if (!this.classList.contains('bloomed')) {
+                        this.classList.add('bloomed');
+                        bloomedCount++;
+                        
+                        if (bloomedCount === 10) {
+                            setTimeout(() => {
+                                document.getElementById('continue5').classList.add('show');
+                            }, 500);
+                        }
+                    }
+                };
+                container.appendChild(tulip);
+            }
+        }
+
+        createTulipGarden();
+
+        // Final Celebration
+        function celebrate() {
+            // Create confetti
+            const colors = ['#FFB5A7', '#B5EAD7', '#C7CEEA', '#FFF4A3', '#FFC8DD'];
+            
+            for (let i = 0; i < 100; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.animationDelay = Math.random() * 0.5 + 's';
+                    document.body.appendChild(confetti);
+                    
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 30);
+            }
+
+            // Update message
+            setTimeout(() => {
+                document.querySelector('.final-screen').innerHTML = `
+                    <h1 class="final-title" style="font-size: 5rem;">🎉 Yaaaaaaaaaaaayyyyyy! 🎉</h1>
+                    <p class="final-message" style="font-size: 2rem; color: var(--peach);">
+                        Mandal Aabhari Aahe! 💕
+                    </p>
+                    <div style="font-size: 4rem; margin-top: 40px; font-family: 'Montserrat';">
+                        I Love You, Shreya
+                    </div>
+                    <div class="final-hearts" style="font-size: 4rem;">
+                        💖 💝 💗 💓 💕 💖 💝 💗
+                    </div>
+                    <p style="margin-top: 40px; font-size: 1.4rem; color: #666; font-family: 'Cormorant Garamond', serif; font-style: italic;">
+                        Forever yours,<br>Vaydo 💕
+                    </p>
+                `;
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
